@@ -1,23 +1,29 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed} from "vue";
 import { useFormStore } from '../store/form';
 
 const formStore = useFormStore();
 const confirmed = ref<boolean>(false);
-
-const selectedOptions = formStore.extraOptions
 
 const confirm = () => {
   confirmed.value = true
 }
 
 const changeSubscription = () => {
-  if (formStore.subscription === 'monthly') {
-    formStore.subscription = 'yearly'
-  } else {
-    formStore.subscription = 'monthly'
-  }
-}
+  formStore.subscription = (formStore.subscription === 'monthly') ? 'yearly' : 'monthly';
+};
+
+const selectedOptions = ref(formStore.extraOptions);
+
+const totalCost = computed(() => {
+  let total = (formStore.subscription === 'monthly')
+    ? formStore.subscriptionValues.monthly.price
+    : formStore.subscriptionValues.yearly.price;
+
+  return total;
+});
+
+
 
 </script>
 
@@ -38,13 +44,34 @@ const changeSubscription = () => {
               <button type="button" @click="changeSubscription" class="underline">Change</button>
             </div>
             <div>
-              <span v-if="formStore.subscription === 'monthly'">$9/mo</span>
-              <span v-if="formStore.subscription === 'yearly'">$90/yr</span>
+              <span v-if="formStore.subscription === 'monthly'">${{ formStore.subscriptionValues.monthly.price }}/mo</span>
+              <span v-if="formStore.subscription === 'yearly'">${{ formStore.subscriptionValues.yearly.price }}/yr</span>
             </div>
           </div>
         </div>
         <div class="mb-1" v-for="(option, index) in selectedOptions" :key="index">
           <div class="flex justify-between">
+            <p>{{ option }}</p>
+            <span v-if="option === 'online-service' && formStore.subscription === 'monthly'">
+              +${{ formStore.extraOptionsValues.month.onlineService.price }}/mo
+            </span>
+            <span v-if="option === 'online-service' && formStore.subscription === 'yearly'">
+              +${{ formStore.extraOptionsValues.year.onlineService.price }}/yr
+            </span>
+            <span v-if="option === 'larger-storage' && formStore.subscription === 'monthly'">
+              +${{ formStore.extraOptionsValues.month.largerStorage.price }}/mo
+            </span>
+            <span v-if="option === 'larger-storage' && formStore.subscription === 'yearly'">
+              +${{ formStore.extraOptionsValues.year.largerStorage.price }}/yr
+            </span>
+            <span v-if="option === 'custom-profile' && formStore.subscription === 'monthly'">
+              +${{ formStore.extraOptionsValues.month.customProfile.price }}/mo
+            </span>
+            <span v-if="option === 'custom-profile' && formStore.subscription === 'yearly'">
+              +${{ formStore.extraOptionsValues.year.customProfile.price }}/yr
+            </span>
+          </div>
+          <!-- <div class="flex justify-between">
             <p>{{ option }}</p>
             <span v-if="option === 'online-service' && formStore.subscription === 'monthly'">+$1/mo</span>
             <span v-if="option === 'online-service' && formStore.subscription === 'yearly'">+$10/yr</span>
@@ -52,11 +79,12 @@ const changeSubscription = () => {
             <span v-if="option === 'larger-storage' && formStore.subscription === 'yearly'">+$20/yr</span>
             <span v-if="option === 'custom-profile' && formStore.subscription === 'monthly'">+$3/mo</span>
             <span v-if="option === 'custom-profile' && formStore.subscription === 'yearly'">+$30/yr</span>
-          </div>
+          </div> -->
         </div>
       </div>
-      <div>
-        <p>Total (<span>per month</span>)</p>
+      <div class="flex justify-between">
+        <p>Total (<span>per {{ formStore.subscription }}</span>)</p>
+        <span>${{ totalCost }}</span>
       </div>
       <div v-if="confirmed" class="absolute bg-white flex justify-center items-center w-full h-full top-0 left-0 rounded-md" id="overlay">
         <div class="flex flex-col items-center p-3">

@@ -44,7 +44,7 @@ const submit = () => {
         </p>
       </div>
       <form action="#" id="form">
-        <div class="flex relative flex-col mb-3">
+        <div class="relative flex flex-col mb-3">
           <label for="name">Name</label>
           <input
             type="text"
@@ -57,7 +57,7 @@ const submit = () => {
           />
             <span v-if="!formStore.formName && submitValue" class="absolute right-0"><p class="text-sm text-red-600 font-medium">This field is required</p> </span>
         </div>
-        <div class="flex flex-col mb-3">
+        <div class="relative flex flex-col mb-3">
           <label for="email">Email Address</label>
           <input
             type="email"
@@ -68,9 +68,9 @@ const submit = () => {
             :class="{ 'border-2 border-red-600': !formStore.formEmail && submitValue}"
             placeholder="e.g.   stephenking@lorem.com"
           />
-          <span v-if="!formStore.formEmail && submitValue" class="absolute right-8"><p class="text-sm text-red-600 font-medium">This field is required</p> </span>
+          <span v-if="!formStore.formEmail && submitValue" class="absolute right-0"><p class="text-sm text-red-600 font-medium">This field is required</p> </span>
         </div>
-        <div class="flex flex-col">
+        <div class="relative flex flex-col">
           <label for="phone">Phone Number</label>
           <input
             type="number"
@@ -81,7 +81,7 @@ const submit = () => {
             :class="{ 'border-2 border-red-600': !formStore.formNumber && submitValue}"
             placeholder="e.g. +1 234 567 890"
           />
-          <span v-if="!formStore.formNumber && submitValue" class="absolute right-8"><p class="text-sm text-red-600 font-medium">This field is required</p> </span>
+          <span v-if="!formStore.formNumber && submitValue" class="absolute right-0"><p class="text-sm text-red-600 font-medium">This field is required</p> </span>
         </div>
       </form>
     </div>

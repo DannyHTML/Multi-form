@@ -22,8 +22,8 @@ const formStore = useFormStore();
             type="checkbox" 
             name="online-service" 
             id="online-service" 
-            value="online-service"
             v-model="formStore.extraOptions"
+            :value="formStore.extraOptionsValues.label.onlineService"
             >
             <div>
               <p class="text-secondary font-bold">Online-service</p> 
@@ -32,8 +32,8 @@ const formStore = useFormStore();
           </div>
           <div class="flex justify-end w-16">
             <div class="flex relative items-center">
-              <p v-if="formStore.subscription === 'monthly'" class="text-secondary absolute right-0">+$2/mo</p>
-              <p v-if="formStore.subscription === 'yearly'" class="text-secondary absolute right-0">+$20/yr</p>
+              <p v-if="formStore.subscription === 'monthly'" class="text-secondary absolute right-0">+${{ formStore.extraOptionsValues.month.onlineService.price}}/mo</p>
+              <p v-if="formStore.subscription === 'yearly'" class="text-secondary absolute right-0">+${{ formStore.extraOptionsValues.year.onlineService.price}}/yr</p>
             </div>
           </div>
         </label>
@@ -46,8 +46,8 @@ const formStore = useFormStore();
             type="checkbox" 
             name="larger-storage" 
             id="larger-storage" 
-            value="larger-storage"
             v-model="formStore.extraOptions"
+            :value="formStore.extraOptionsValues.label.largerStorage"
             >
             <div>
               <p class="text-secondary font-bold">Larger storage</p> 
@@ -56,8 +56,8 @@ const formStore = useFormStore();
           </div>
           <div class="flex justify-end w-16">
             <div class="flex relative items-center">
-              <p v-if="formStore.subscription === 'monthly'" class="text-secondary absolute right-0">+$2/mo</p>
-              <p v-if="formStore.subscription === 'yearly'" class="text-secondary absolute right-0">+$20/yr</p>
+              <p v-if="formStore.subscription === 'monthly'" class="text-secondary absolute right-0">+${{ formStore.extraOptionsValues.month.largerStorage.price }}/mo</p>
+              <p v-if="formStore.subscription === 'yearly'" class="text-secondary absolute right-0">+${{ formStore.extraOptionsValues.year.largerStorage.price }}/yr</p>
             </div>
           </div>
         </label>
@@ -70,8 +70,8 @@ const formStore = useFormStore();
           type="checkbox" 
           name="custom-profile" 
           id="custom-profile" 
-          value="custom-profile"
           v-model="formStore.extraOptions"
+          :value="formStore.extraOptionsValues.label.customProfile"
           >
             <div class="">
               <p class="text-secondary font-bold">Customizable profile</p> 
@@ -80,8 +80,8 @@ const formStore = useFormStore();
           </div>
           <div class="flex justify-end w-16">
             <div class="flex relative items-center">
-              <p v-if="formStore.subscription === 'monthly'" class="text-secondary absolute right-0">+$2/mo</p>
-              <p v-if="formStore.subscription === 'yearly'" class="text-secondary absolute right-0">+$20/yr</p>
+              <p v-if="formStore.subscription === 'monthly'" class="text-secondary absolute right-0">+${{ formStore.extraOptionsValues.month.customProfile.price }}/mo</p>
+              <p v-if="formStore.subscription === 'yearly'" class="text-secondary absolute right-0">+${{ formStore.extraOptionsValues.year.customProfile.price }}/yr</p>
             </div>
           </div>
         </label>

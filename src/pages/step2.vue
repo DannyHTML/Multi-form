@@ -79,18 +79,16 @@ const formStore = useFormStore();
               name="monthly" 
               id="monthly" 
               v-model="formStore.subscription" 
-              value="monthly"
+              :value="formStore.subscriptionValues.monthly.label"
               >
               <input 
               type="radio" 
-              
               :class="{ 'bg-white': formStore.subscription === 'yearly'}"
               class="absolute -translate-y-1/2 top-1/2 ml-1 mr-1 right-0 appearance-none rounded-full w-3.5 h-3.5"
-              
               name="yearly" 
               id="yearly"
               v-model="formStore.subscription" 
-              value="yearly"
+              :value="formStore.subscriptionValues.yearly.label"
               >
             </div>
             <p>Yearly</p>
