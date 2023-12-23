@@ -1,0 +1,1 @@
+import{d as n,u as s,o as r,c as a,e as c}from"./index-fDGf7Shn.js";const d=["disabled"],u=n({__name:"ButtonNext",props:{confirm:Boolean},setup(o){const t=s();return(m,e)=>(r(),a("button",{onClick:e[0]||(e[0]=i=>c(t).nextPage()),class:"px-2 py-1 rounded-md bg-secondary text-white",disabled:o.confirm},"Next Step",8,d))}});export{u as _};
