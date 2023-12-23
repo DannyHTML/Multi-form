@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
+// createWebHashHistory() for GitHub, createWebHistory() for live domain.
 export const router = createRouter({
     history: createWebHashHistory(),
     routes: [
