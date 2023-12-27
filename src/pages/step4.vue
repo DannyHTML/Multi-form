@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed} from "vue";
-import { useFormStore } from '../store/form';
+import { useFormStore } from "../store/form";
 
 const formStore = useFormStore();
 const confirmed = ref<boolean>(false);
@@ -10,19 +10,18 @@ const confirm = () => {
 }
 
 const changeSubscription = () => {
-  formStore.subscription = (formStore.subscription === 'monthly') ? 'yearly' : 'monthly';
+  formStore.subscription = (formStore.subscription === "monthly") ? "yearly" : "monthly";
 };
 
 const selectedOptions = ref(formStore.extraOptions);
 
 const totalCost = computed(() => {
-  let total = (formStore.subscription === 'monthly')
+  let total = (formStore.subscription === "monthly")
     ? formStore.subscriptionValues.monthly.price
     : formStore.subscriptionValues.yearly.price;
 
   return total;
 });
-
 
 
 </script>
