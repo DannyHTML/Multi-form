@@ -96,12 +96,12 @@ const totalCost = computed(() => {
         </div>
       </div>
     </div>
-    <div v-if="!confirmed" class="fixed bg-white left-0 w-full h-14 bottom-0">
-      <div class="relative right-0 pr-4 top-1/2 mx-4 -translate-y-1/2">
+    <div v-if="!confirmed" class="fixed flex justify-center bg-white left-0 w-full h-14 bottom-0">
+      <div class="relative container max-w-[416px] px-3 mx-4">
         <div class="absolute top-1/2 -translate-y-1/2">
           <RouterLink to="/Pick-add-ons" @click="formStore.previousPage()">Go Back</RouterLink>
         </div>
-        <div class="absolute right-0 top-1/2 -translate-y-1/2">
+        <div class="absolute right-3 top-1/2 -translate-y-1/2">
         <button @click="confirm" class="px-2 py-1 rounded-md bg-secondary text-white">Confirm</button>
       </div>
       </div>

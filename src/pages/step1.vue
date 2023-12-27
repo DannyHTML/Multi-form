@@ -85,10 +85,12 @@ const submit = () => {
         </div>
       </form>
     </div>
-    <div class="fixed bg-white left-0 w-full h-14 bottom-0">
-      <div class="absolute right-0 pr-4 top-1/2 -translate-y-1/2">
-        <button @click="submit" class="px-2 py-1 rounded-md bg-secondary text-white" >Next Step</button>
-      </div>
+    <div  class="fixed flex justify-center bg-white left-0 w-full h-14 bottom-0">
+      <div class="relative container max-w-[416px] px-3 h-full mx-4">
+        <div class="absolute right-3 top-1/2 -translate-y-1/2">
+          <button @click="submit" class="px-2 py-1 rounded-md bg-secondary text-white"  >Next Step</button>
+        </div>
+    </div>
     </div>
   </div>
 </template>

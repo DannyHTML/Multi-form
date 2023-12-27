@@ -87,12 +87,12 @@ const formStore = useFormStore();
         </label>
       </form>
     </div>
-    <div class="fixed bg-white left-0 w-full h-16 bottom-0">
-      <div class="relative h-full mx-4">
+    <div class="fixed flex justify-center bg-white left-0 w-full h-14 bottom-0">
+      <div class="relative container max-w-[416px] px-3 mx-4">
         <div class="absolute top-1/2 -translate-y-1/2">
           <RouterLink to="/Select-your-plan" @click="formStore.previousPage()">Go Back</RouterLink>
         </div>
-        <div class="absolute right-0 top-1/2 -translate-y-1/2">
+        <div class="absolute right-3 top-1/2 -translate-y-1/2">
           <RouterLink to="/Finishing-up"><ButtonNext /></RouterLink>
         </div>
       </div>
