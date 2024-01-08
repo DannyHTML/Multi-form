@@ -15,7 +15,7 @@ const formStore = useFormStore();
       </div>
       <form action="#" id="form">
         <label class="flex justify-between border-2 p-2 rounded-md mb-3" for="online-service"
-               :class="{ 'bg-gray-100 border-secondary' : formStore.extraOptions.includes('online-service')}">
+               :class="{ 'bg-gray-100 border-secondary' : formStore.extraOptions.includes('onlineService')}">
           <div class="flex gap-3">
             <input  
             class="w-4" 
@@ -23,7 +23,7 @@ const formStore = useFormStore();
             name="online-service" 
             id="online-service" 
             v-model="formStore.extraOptions"
-            :value="formStore.extraOptionsValues.label.onlineService"
+            value="onlineService"
             >
             <div>
               <p class="text-secondary font-bold">Online-service</p> 
@@ -39,7 +39,7 @@ const formStore = useFormStore();
         </label>
         <!--  -->
         <label class="flex justify-between gap-3 border-2 p-2 rounded-md mb-3" for="larger-storage"
-               :class="{ 'bg-gray-100 border-secondary' : formStore.extraOptions.includes('larger-storage')}">
+               :class="{ 'bg-gray-100 border-secondary' : formStore.extraOptions.includes('largerStorage')}">
           <div class="flex gap-3">
             <input 
             class="w-4" 
@@ -47,7 +47,7 @@ const formStore = useFormStore();
             name="larger-storage" 
             id="larger-storage" 
             v-model="formStore.extraOptions"
-            :value="formStore.extraOptionsValues.label.largerStorage"
+            value="largerStorage"
             >
             <div>
               <p class="text-secondary font-bold">Larger storage</p> 
@@ -63,7 +63,7 @@ const formStore = useFormStore();
         </label>
         <!--  -->
         <label class="flex justify-between gap-3 border-2 p-2 rounded-md mb-3" for="custom-profile"
-               :class="{ 'bg-gray-100 border-secondary' : formStore.extraOptions.includes('custom-profile')}">
+               :class="{ 'bg-gray-100 border-secondary' : formStore.extraOptions.includes('customProfile')}">
           <div class="flex gap-3">
           <input 
           class="w-4" 
@@ -71,7 +71,7 @@ const formStore = useFormStore();
           name="custom-profile" 
           id="custom-profile" 
           v-model="formStore.extraOptions"
-          :value="formStore.extraOptionsValues.label.customProfile"
+          value="customProfile"
           >
             <div class="">
               <p class="text-secondary font-bold">Customizable profile</p> 

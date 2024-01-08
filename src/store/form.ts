@@ -25,9 +25,9 @@ export const useFormStore = defineStore('form', () => {
 
     const extraOptionsValues = {
       label: {
-        onlineService: "online-service",
-        largerStorage: "larger-storage",
-        customProfile: "custom-profile"
+        onlineService: "onlineService",
+        largerStorage: "largerStorage",
+        customProfile: "customProfile"
       },
       month: {
         onlineService: {

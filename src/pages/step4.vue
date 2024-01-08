@@ -20,6 +20,19 @@ const totalCost = computed(() => {
     ? formStore.subscriptionValues.monthly.price
     : formStore.subscriptionValues.yearly.price;
 
+    console.log(formStore.extraOptions); 
+    for (const option of formStore.extraOptions) {
+      console.log(option);
+      if (formStore.subscription === "monthly"){
+          if (option in formStore.extraOptionsValues.month){
+            total += formStore.extraOptionsValues.month[option as keyof typeof formStore.extraOptionsValues.month].price
+        }
+      }
+      if (formStore.subscription === "yearly"){
+          total += formStore.extraOptionsValues.year[option as keyof typeof formStore.extraOptionsValues.year].price
+      }
+    }
+
   return total;
 });
 
